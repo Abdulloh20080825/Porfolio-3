@@ -5,6 +5,10 @@ const PORT = process.env.PORT || 4001;
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+	res.send('Work');
+});
+
 app.post('/message', async (req, res) => {
 	try {
 		console.log(req.body);
