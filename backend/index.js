@@ -1,7 +1,10 @@
 const express = require('express');
 const smtp = require('./service/smtp');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 4001;
+
+app.use(cors());
 
 app.use(express.json());
 

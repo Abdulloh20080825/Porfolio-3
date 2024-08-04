@@ -1,7 +1,28 @@
 import { CONTACT } from '../constants';
 import { motion } from 'framer-motion';
+import axiosInstance from '../server/get-backend-api';
+import { useState } from 'react';
 
 const Contact = () => {
+	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState('');
+	const [message, setMessage] = useState('');
+	const sendMessage = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await axiosInstance.post('/message', {
+				username,
+				email,
+				message,
+			});
+			setUsername('');
+			setEmail('');
+			setMessage('');
+			console.log('Your message: ' + response);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<div className='border-b border-neutral-900 pb-20 px-4 lg:px-0'>
 			<motion.h1
@@ -38,7 +59,10 @@ const Contact = () => {
 				>
 					{CONTACT.email}
 				</motion.a>
-				<form className='mt-10 flex flex-col items-center '>
+				<form
+					className='mt-10 flex flex-col items-center '
+					onSubmit={(e) => sendMessage(e)}
+				>
 					<motion.div
 						whileInView={{ opacity: 1, x: 0 }}
 						initial={{ opacity: 0, x: -100 }}
@@ -55,6 +79,8 @@ const Contact = () => {
 							type='text'
 							id='username'
 							name='username'
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
 							placeholder='Full Name'
 							className='w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
 						/>
@@ -75,6 +101,8 @@ const Contact = () => {
 							type='email'
 							id='email'
 							name='email'
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 							placeholder='Email'
 							className='w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
 						/>
@@ -95,6 +123,8 @@ const Contact = () => {
 							name='message'
 							id='message'
 							placeholder='Message'
+							value={message}
+							onChange={(e) => setMessage(e.target.value)}
 							className='w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
 							rows='4'
 						></textarea>
