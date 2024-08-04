@@ -1,7 +1,5 @@
-import { FaLinkedin } from 'react-icons/fa';
+import { FaGoogle, FaTelegram } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
-import { FaSquareXTwitter } from 'react-icons/fa6';
-import { FaInstagram } from 'react-icons/fa';
 
 const Navbar = () => {
 	return (
@@ -9,11 +7,10 @@ const Navbar = () => {
 			<div className='flex flex-shrink-0 items-center'>
 				<h2 className='text-3xl cursor-pointer'>AQ</h2>
 			</div>
-			<div className='m-8 flex items-center justify-center gap-4 text-2xl'>
-				<FaLinkedin />
+			<div className='m-8 flex items-center justify-center gap-5 text-4xl'>
+				<FaTelegram />
 				<FaGithub />
-				<FaSquareXTwitter />
-				<FaInstagram />
+				<FaGoogle />
 			</div>
 		</nav>
 	);
