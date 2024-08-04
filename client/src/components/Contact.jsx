@@ -7,6 +7,8 @@ const Contact = () => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState('');
+	const [isSend, setIsSend] = useState(false);
+
 	const sendMessage = async (e) => {
 		e.preventDefault();
 		try {
@@ -18,13 +20,26 @@ const Contact = () => {
 			setUsername('');
 			setEmail('');
 			setMessage('');
+			setIsSend(true);
+			window.setTimeout(() => setIsSend(false), 3000);
 			console.log('Your message: ' + response);
 		} catch (error) {
 			console.log(error);
 		}
 	};
+
 	return (
-		<div className='border-b border-neutral-900 pb-20 px-4 lg:px-0'>
+		<div className='border-b border-neutral-900 pb-20 px-4 lg:px-0 relative'>
+			{isSend && (
+				<motion.div
+					initial={{ opacity: 0, y: -50 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1.5 }}
+					className='absolute bg-gradient-to-r from-pink-300  to-purple-500 text-white p-4 rounded-md'
+				>
+					Message sent successfully
+				</motion.div>
+			)}
 			<motion.h1
 				whileInView={{ opacity: 1, y: 0 }}
 				initial={{ opacity: 0, y: -50 }}
@@ -60,7 +75,7 @@ const Contact = () => {
 					{CONTACT.email}
 				</motion.a>
 				<form
-					className='mt-10 flex flex-col items-center '
+					className='mt-10 flex flex-col items-center'
 					onSubmit={(e) => sendMessage(e)}
 				>
 					<motion.div
