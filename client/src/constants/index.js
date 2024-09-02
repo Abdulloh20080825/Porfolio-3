@@ -2,6 +2,10 @@ import project1 from '../assets/projects/project-1.jpg';
 import project2 from '../assets/projects/project-2.jpg';
 import project3 from '../assets/projects/project-3.jpg';
 import project4 from '../assets/projects/project-4.jpg';
+import project5 from '../assets/projects/project-5.png';
+import project6 from '../assets/projects/project-6.png';
+import project7 from '../assets/projects/project-7.png';
+import project8 from '../assets/projects/project-8.png';
 
 export const HERO_CONTENT = `I'm a Full Stack developer, and I started learning programming in April 2023. In February 2024, I learned HTML, CSS, and advanced JavaScript. After that, I started learning a JavaScript library called React JS and reached an advanced level by April 2024. My first project using React JS was a React calculator. I then movedon to developing a React-based Pokemon application and various other
 projects. In June 2024, I decided to expand my skills and started learning Python. However, I faced some difficulties and decided to shift my focus to learning Node.js and Express.js instead.In just 2 weeks, I was able to learn these frameworks and start building full-stack projects. This experience has shown me the importance of continuous learning and adapting to new technologies.I'm passionate about programming and enjoy the challenge ofmastering new frameworks and tools to create innovative solutions.`;
@@ -48,12 +52,56 @@ export const PROJECTS = [
 		technologies: ['HTML', 'CSS', 'ReactJs'],
 	},
 	{
-		title: 'Pokrmon App',
+		title: 'Pokemon App',
 		link: 'https://pokemon-app-five-chi.vercel.app/',
 		image: project4,
 		description:
 			'An application with Qwasar platform using with see stats and see All Pokemons',
 		technologies: ['HTML', 'CSS', 'React Js', 'Bootstrap'],
+	},
+	{
+		title: 'Redux E-commerce online Shop',
+		link: 'https://react-redux-e-commerce-chi.vercel.app',
+		image: project5,
+		description:
+			'This project is made using the latest technology called redux online store',
+		technologies: [
+			'HTML',
+			'CSS',
+			'React Js',
+			'TailwindCSS',
+			'redux redux-toolkit',
+		],
+	},
+	{
+		title: 'Job Finder',
+		link: 'https://find-your-favourite-job.vercel.app/',
+		image: project6,
+		description: 'You can find your favourite job here',
+		technologies: ['HTML', 'React Js', 'TailwindCSS'],
+	},
+	{
+		title: 'Full Stack Blog',
+		link: 'https://full-stack-blog-snowy.vercel.app/login',
+		image: project7,
+		description: 'The biggest porject when i make to ths moment ',
+		technologies: [
+			'HTML',
+			'CSS',
+			'React Js',
+			'TailwindCSS',
+			'react-icons',
+			'Node JS',
+			'Express Js',
+			'MongoDB',
+		],
+	},
+	{
+		title: 'Todo List using TypeScript',
+		link: 'https://full-stack-blog-snowy.vercel.app/login',
+		image: project8,
+		description: 'The project Todo list you can add end delet todos  ',
+		technologies: ['HTML', 'React Js', 'TypeScript'],
 	},
 ];
 
